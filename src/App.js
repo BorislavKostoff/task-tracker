@@ -1,10 +1,34 @@
+import { useState } from "react"
 import styled from 'styled-components'
 import Header from './components/Header'
+import Tasks from './components/Tasks';
 
 function App() {
+  const [tasks, setTasks] = useState([
+    {
+        id: 1,
+        text: 'Task number 1',
+        day: 'date of the task',
+        reminder: true
+    },
+    {
+        id: 2,
+        text: 'Task number 2',
+        day: 'date of the task',
+        reminder: true
+    },
+    {
+        id: 3,
+        text: 'Task number 3',
+        day: 'date of the task',
+        reminder: false
+    }
+])
+
   return (
     <Container>
       <Header title="Task Tracker"/>
+      <Tasks tasks={tasks}/>
     </Container>
   );
 }
