@@ -1,9 +1,10 @@
+import { FaTimes } from 'react-icons/fa'
 import styled from "styled-components"
 
-const Task = ({ task }) => {
+const Task = ({ task, onDelete, onToggle }) => {
     return (
-        <MainTask>
-            <h3>{task.text}</h3>
+        <MainTask task={task} onDoubleClick={() => onToggle(task.id)}>
+            <h3>{task.text} <DeleteButton onClick={() => onDelete(task.id)}/></h3>
             <p>{task.day}</p>
         </MainTask>
     )
@@ -12,8 +13,19 @@ const Task = ({ task }) => {
 export default Task
 
 const MainTask = styled.div `
-    background: f4f4f4;
+    background: #f4f4f4;
     margin: 5px;
     padding: 10px 20px;
+    cursor: pointer;
+    h3 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    border-left: ${props => props.task.reminder ? '5px solid green' : '5px solid red'};
+`
+
+const DeleteButton = styled(FaTimes)`
+    color: red;
     cursor: pointer;
 `
