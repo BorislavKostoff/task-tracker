@@ -22,7 +22,7 @@ const MainTask = styled.div `
         align-items: center;
         justify-content: space-between;
     }
-    border-left: ${props => props.task.reminder ? '5px solid green' : '5px solid red'};
+    border-left: ${props => props.task.reminder ? '5px solid red' : '5px solid green'};
 `
 
 const DeleteButton = styled(FaTimes)`

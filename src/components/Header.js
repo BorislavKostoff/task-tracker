@@ -2,19 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import Button from './Button'
 
-function Header({ title }) {
-    const onClick = () => {
-        console.log('clicked')
-    }
-
+function Header({ title, onOpen, showOpen }) {
     return (
         <HeadHeader>
             <h1>{title}</h1>
-            <Button
-            color='green'
-            text='Add'
-            onClick={onClick}
-            />
+                <Button
+                    color={showOpen ? 'red' : 'green'}
+                    text={showOpen ? 'Close' : 'Open'}
+                    onClick={onOpen}
+                />
         </HeadHeader>
     )
 }
